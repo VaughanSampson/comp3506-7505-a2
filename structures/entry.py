@@ -68,14 +68,14 @@ class Entry(Hashable):
         assignment, your universe could be something like integers in
         [0, 2^32-1].
         """  
-        x_bytes = object_to_byte_array(self._key)
-        sum = -2147483648 
-        max =  min(4,len(x_bytes))
-        i = max-1 
-        for byte_index in range(0, max):
-            sum += x_bytes[byte_index] << (8*i)
-            i -= 1
-        return sum 
+        x_bytes = object_to_byte_array(self._key) 
+        sum = 0 
+        i = 0 
+        iter =  len(x_bytes)//20+1
+        for byte_int in range(0, len(x_bytes), iter):
+            sum += x_bytes[byte_int] << i
+            i += 1 
+        return  sum 
 
 class Compound:
     """

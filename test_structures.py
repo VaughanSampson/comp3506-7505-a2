@@ -100,9 +100,9 @@ def test_map() -> None:
     random.seed(1337)
     print("==== Executing Map Tests ====")
     
-    e = Entry(10, 3)
+    e = Entry(542787453, 3)
     print(e.get_hash())
-    e = Entry(0, 1)
+    e = Entry(542787452, 1)
     print(e.get_hash())
     
     
