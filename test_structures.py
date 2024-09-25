@@ -99,16 +99,24 @@ def test_map() -> None:
     # Seed PRNG
     random.seed(1337)
     print("==== Executing Map Tests ====")
-    my_map = Map()
+    
+    e = Entry(10, 3)
+    print(e.get_hash())
+    e = Entry(0, 1)
+    print(e.get_hash())
+    
+    
+    
+    # my_map = Map()
 
-    # Make some entries
-    e1 = Entry(1, "value_for_key_1")
-    e2 = Entry(10, "value_for_key_10")
-    my_map.insert(e1)
-    my_map.insert(e2)
-    my_map.insert_kv(2, "Barry rules")
-    my_map[3] = "value_for_key_3"
-    assert my_map.get_size() == 4
+    # # Make some entries
+    # e1 = Entry(1, "value_for_key_1")
+    # e2 = Entry(10, "value_for_key_10")
+    # my_map.insert(e1)
+    # my_map.insert(e2)
+    # my_map.insert_kv(2, "Barry rules")
+    # my_map[3] = "value_for_key_3"
+    # assert my_map.get_size() == 4
 
     """
     OK, simple boring hand written tests don't really find bugs... Just

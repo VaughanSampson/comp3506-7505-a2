@@ -33,7 +33,9 @@ class Map:
         You are free to make any changes you find suitable in this function
         to initialise your map.
         """
-        pass
+        self._capacity = 10
+        self._buckets = [None] * self._capacity
+        self._count = 0
 
     def insert(self, entry: Entry) -> Any | None:
         """

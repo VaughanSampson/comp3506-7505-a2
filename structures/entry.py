@@ -6,6 +6,7 @@ Joel Mackenzie and Vladimir Morozov
 
 from typing import Any
 from structures.util import Hashable
+from structures.util import object_to_byte_array
 
 class Entry(Hashable):
     """
@@ -66,7 +67,15 @@ class Entry(Hashable):
         trying to convert a key to an integer in the universe (and in this
         assignment, your universe could be something like integers in
         [0, 2^32-1].
-        """
+        """  
+        x_bytes = object_to_byte_array(self._key)
+        sum = -2147483648 
+        max =  min(4,len(x_bytes))
+        i = max-1 
+        for byte_index in range(0, max):
+            sum += x_bytes[byte_index] << (8*i)
+            i -= 1
+        return sum 
 
 class Compound:
     """
