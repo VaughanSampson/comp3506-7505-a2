@@ -58,9 +58,8 @@ def object_to_byte_array(obj: Any) -> list[bytes]:
 def hash(x) -> int: 
     x_bytes = object_to_byte_array(x) 
     sum = 0 
-    i = 0
-    start = max(0, len(x_bytes) - 31) 
-    for byte_int in range(start, len(x_bytes)):
-        sum += (x_bytes[byte_int] % 251) << i
+    i = 0 
+    for byte_int in range(0, len(x_bytes)):
+        sum += x_bytes[byte_int] << i
         i += 1 
     return  sum 
