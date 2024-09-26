@@ -6,7 +6,7 @@ Joel Mackenzie and Vladimir Morozov
 
 from typing import Any
 from structures.util import Hashable
-from structures.util import object_to_byte_array
+from structures.util import hash
 
 class Entry(Hashable):
     """
@@ -68,14 +68,7 @@ class Entry(Hashable):
         assignment, your universe could be something like integers in
         [0, 2^32-1].
         """  
-        x_bytes = object_to_byte_array(self._key) 
-        sum = 0 
-        i = 0 
-        iter =  len(x_bytes)//20+1
-        for byte_int in range(0, len(x_bytes), iter):
-            sum += x_bytes[byte_int] << i
-            i += 1 
-        return  sum 
+        return hash(self._key)
 
 class Compound:
     """

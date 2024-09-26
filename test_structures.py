@@ -97,27 +97,60 @@ def test_map() -> None:
     This is not marked and is just here for you to test your code.
     """
     # Seed PRNG
-    random.seed(1337)
-    print("==== Executing Map Tests ====")
+    # random.seed(1337)
+    # print("==== Executing Map Tests ====")
     
-    e = Entry(542787453, 3)
-    print(e.get_hash())
-    e = Entry(542787452, 1)
-    print(e.get_hash())
+    # e = Entry("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhha", 3)
+    # print(e.get_hash())
+    # e = Entry("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhb", 1)
+    # print(e.get_hash())
     
     
     
-    # my_map = Map()
+    my_map = Map()
 
-    # # Make some entries
+    # Make some entries
     # e1 = Entry(1, "value_for_key_1")
     # e2 = Entry(10, "value_for_key_10")
     # my_map.insert(e1)
     # my_map.insert(e2)
     # my_map.insert_kv(2, "Barry rules")
-    # my_map[3] = "value_for_key_3"
+    # my_map[3] = "value_for_key_3" 
     # assert my_map.get_size() == 4
-
+    # assert my_map[3] == "value_for_key_3"
+    # assert my_map[1] == "value_for_key_1"
+    # assert my_map[10] == "value_for_key_10"
+    # assert my_map[2] == "Barry rules"
+    # my_map.remove(3)
+    # assert my_map[3] == None
+    # my_map.remove(3)
+    # assert my_map.get_size() == 3
+    # e1 = Entry(1, "value_for_key_1")
+    # e2 = Entry(10, "value_for_key_10")
+    # my_map.insert(e1)
+    # my_map.insert(e2)
+    # my_map.insert_kv(2, "Barry rules") 
+    # my_map[3] = "value_for_key_3" 
+    # assert my_map.get_size() == 4
+    # assert my_map[3] == "value_for_key_3"
+    # assert my_map[1] == "value_for_key_1"
+    # assert my_map[10] == "value_for_key_10"
+    # assert my_map[2] == "Barry rules"
+    
+    my_map = Map() 
+    for i in range(0, 1000, 1):
+        my_map[i] = i
+        
+    for i in range(0, 1000, 1):
+        assert my_map[i] == i
+     
+    for i in range(0, 1000, 1):
+        my_map.remove(i)
+    
+    for i in range(0, 1000, 1):
+        assert my_map[i] == None
+        
+    
     """
     OK, simple boring hand written tests don't really find bugs... Just
     use them to detect specific corner cases and/or unit test each individual
