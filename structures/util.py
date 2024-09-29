@@ -59,7 +59,8 @@ def hash(x) -> int:
     x_bytes = object_to_byte_array(x) 
     sum = 0 
     i = 0 
-    for byte_int in range(0, len(x_bytes)):
-        sum += x_bytes[byte_int] << i
+    for byte_int in range(2, len(x_bytes)-1):
+        sum += x_bytes[byte_int] << (8*i) 
+        sum  %= 4294967291
         i += 1 
-    return  sum 
+    return  sum

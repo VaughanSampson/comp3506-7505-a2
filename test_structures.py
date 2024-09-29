@@ -218,6 +218,20 @@ def test_bloom() -> None:
     """
 
 
+def test_hash() -> None:
+    """
+    A simple set of tests for the associative map.
+    This is not marked and is just here for you to test your code.
+    """
+    # Seed PRNG
+    random.seed(1337)
+    print("==== Executing Map Tests ====")
+    
+    e = Entry(1211111, 3)
+    print(e.get_hash())
+    e = Entry(1211112, 11111111111111)
+    print(e.get_hash())
+    
 # The actual program we're running here
 if __name__ == "__main__":
     # Get and parse the command line arguments
@@ -226,6 +240,7 @@ if __name__ == "__main__":
     parser.add_argument("--pq", action="store_true", help="Run Priority Queue tests?")
     parser.add_argument("--map", action="store_true", help="Run Map tests?")
     parser.add_argument("--bloom", action="store_true", help="Run Bloom Filter tests?")
+    parser.add_argument("--hash", action="store_true", help="Hash tests?")
     parser.set_defaults(pq=False, map=False, bloom=False)
 
     args = parser.parse_args()
@@ -242,3 +257,5 @@ if __name__ == "__main__":
         test_map()
     if args.bloom:
         test_bloom()
+    if args.hash:
+        test_hash()

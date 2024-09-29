@@ -58,13 +58,12 @@ class BloomFilter:
         Time complexity for full marks: O(1)
         """
         hashed_value = hash(key)
+        
         i = hashed_value %  self._max_keys
         self._data.set_at(i)
-        i = (hashed_value * 5) %  self._max_keys
+         
+        i = hash(hashed_value) %  self._max_keys
         self._data.set_at(i)
-        i = (hashed_value * 7) %  self._max_keys
-        self._data.set_at(i)
-        self._empty = False
     
 
     def contains(self, key: Any) -> bool:
@@ -80,11 +79,7 @@ class BloomFilter:
         if self._data.get_at(i) == 0:
             return False
         
-        i = (hashed_value * 5) %  self._max_keys
-        if self._data.get_at(i) == 0:
-            return False
-        
-        i = (hashed_value * 7) %  self._max_keys
+        i = hash(hashed_value) %  self._max_keys
         if self._data.get_at(i) == 0:
             return False
          
